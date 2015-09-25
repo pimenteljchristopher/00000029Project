@@ -1,0 +1,212 @@
+/* Empty. Add your own CSS if you like */
+.tab-item{
+	color: #fff;
+}
+
+.bar-niouz > div,
+.bar-niouz .bar-header{
+	background-color: #21A241 !important;
+	color: #fff;
+}
+
+.bar-agenda > div,
+.bar-agenda .bar-header{
+	background-color: #F18D00 !important;
+	color: #fff;
+}
+
+.bar-annuaire > div,
+.bar-annuaire .bar-header{
+	background-color: #00A1CD !important;
+	color: #fff;
+}
+
+.bar-defaut > div,
+.bar-defaut .bar-header{
+	background-color: #A70E13 !important;
+	color: #fff;
+}
+
+.bar > * {
+	color: #fff !important;
+}
+
+.niouz{
+	position: relative;
+}
+
+.niouz-half{
+	width: 50%;
+	height: 300px;
+	float: left;
+}
+
+.image-niouz{
+	width: 100%;
+	height: 300px;
+}
+
+.legende-niouz{
+	position: absolute;
+	bottom: 0;
+	background-color: #21A241;
+	width: 100%;
+	opacity: 0.85;
+}
+
+.titre-niouz{
+	color: #fff;
+}
+
+.categorie-niouz{
+	color: #fff;
+}
+
+.date-niouz{
+	color: #fff;
+	float: right;
+	margin-right: 1em;
+}
+
+
+
+.tab-agenda {
+	position: relative;
+	top: 44px;
+    height: 88px;
+    
+}
+
+.subheader-map{
+	padding-top: 5px;
+	padding-bottom: 5px;
+	max-height: 80px;
+	background:  #F18D00 !important;
+}
+#subheader-map-list{
+   margin-left: 90px;
+   width: 150px !important;
+} 
+#subheader-map-map{
+
+}
+#subheader-map-navigate{
+  
+   text-align: right;
+}
+.subheader-map a{
+	height: 20px;
+    font-size: 13px;
+	background: #F18D00 !important;
+	border: 1px solid white !important;
+}
+.subheader-info{
+
+	padding-right: 10%;
+	padding-left: 10%;
+	padding-top: 2px;
+	padding-bottom: 2px;
+
+    background:  #ff5207 !important;
+}
+
+.subheader-info a{
+    	height: 10px !important;
+    	padding: -5px !important;
+
+	border: 1px solid white !important;
+	border-radius: 15px !important;
+	background: #F18D00 !important;
+}
+
+
+
+map {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.scroll {
+  height: 100%;
+}
+
+/* Empty. Add your own CSS if you like */
+
+#map_canvas {
+	width: 100%;
+	height: 40%;
+	margin: 0;
+	position: relative;
+}
+
+.angular-google-map-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+#map-events{
+   height:150px; 
+  
+     padding: 0px;
+  
+}
+#map-events > *{
+ 
+   color:black !important;
+}
+#map-events span{
+	  position: relative;
+	  height: 20px;
+	  width: 100%;
+    
+     text-overflow: ellipsis;
+
+  /* Required for text-overflow to do anything */
+  white-space: nowrap;
+  overflow: hidden;
+	 
+}
+#map-events img{
+
+  width: 100%;
+  height: 150px;
+}
+#map-events div{
+	background: #dbdbdb;
+    padding: 0px;
+    width: inherit;
+}
+
+#map-events-title{
+	margin-top: 5px;
+   margin-left: 5px;
+   display: inline-block;
+   font-size:5vw;
+   font-style: bold;
+}
+
+#map-events-address{
+	 margin-left: 5px;
+	  display: inline-block;
+	 font-size:4vw;
+}
+
+#map-events-date{
+	margin-left: 5px;
+	  display: inline-block;
+	 font-size:4vw;
+}
+
+#map-events-detail{
+	margin-left: 5px;
+	  display: inline-block;
+	height: 40px !important;
+	width: 100px;
+	
+    font-size:3vw;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}

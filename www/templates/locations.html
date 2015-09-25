@@ -1,0 +1,20 @@
+<ion-view view-title="Annuaire" class="bar-balanced">
+
+    <ion-content>
+
+      <div class="list">
+
+        <a ng-repeat="item in locations" 
+           href="#/mobile/location/{{item.location_id}}"
+           class="item item-thumbnail-left">
+
+          <img ng-src="{{ item.image }}">
+<!--          <span data-ng-bind-html="item.photo"></span>-->
+          <h2>{{ item.title }}</h2>
+          <h4 data-ng-bind-html="item.excerpt"></h4>
+        </a>
+
+      </div>
+
+    </ion-content>
+</ion-view>

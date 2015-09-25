@@ -1,0 +1,27 @@
+<ion-view view-title="Niouz" class="bar-balanced">
+
+    <ion-content>
+
+      <ion-list>
+
+        <a ng-repeat="item in niouz"
+           href="#/mobile/niouz/{{item.id}}"
+           class="niouz" ng-class="{'niouz-half':$index > 1}">
+
+          <img class="image-niouz" ng-src="{{ item.thumbnail_images.full.url }}" style="width:100%">
+            <div class="legende-niouz">
+                <h2 class="titre-niouz" ng-if="$index < 2" data-ng-bind-html="item.title | LimitLetter:25"></h2>
+                <h4 class="titre-niouz" ng-if="$index > 1" data-ng-bind-html="item.title | LimitLetter:22"></h4>
+                <h3 class="categorie-niouz" ng-if="$index < 2"><span ng-repeat="cat in item.categories" data-ng-bind-html="cat.title + ' '"></span></h3>
+                <h5 class="categorie-niouz" ng-if="$index > 1"><span ng-repeat="cat in item.categories" data-ng-bind-html="(cat.title | LimitLetter:20) + ' '"></span></h5>
+                <p class="date-niouz" ng-if="$index < 2">{{ item.date | FormatDate }} </p>
+            </div>
+<!--          <h4 data-ng-bind-html="item.excerpt"></h4>-->
+        </a>
+          
+
+      </ion-list>
+      <ion-infinite-scroll ng-if="!noMoreItemsAvailable" on-infinite="loadMore()"></ion-infinite-scroll>
+
+    </ion-content>
+</ion-view>
