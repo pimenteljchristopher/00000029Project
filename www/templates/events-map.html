@@ -1,4 +1,7 @@
 <ion-view view-title="Map" class="bar-balanced"  hide-back-button="true">
+
+
+
  <ion-nav-buttons side="left">
       <button menu-toggle="left" class="button button-balanced button-icon icon ion-navicon"></button>
     </ion-nav-buttons>
@@ -11,8 +14,8 @@
          <div class="tab-agenda" >
           <div class="button-bar subheader-map">
             <a class="button "  id="subheader-map-list" ui-sref="mobile.events.list">List</a>
-            <a class="button" id="subheader-map-map " ui-sref="mobile.events.map">Map</a>
-             <button  class="button button-icon icon ion-navigate" id="subheader-map-navigate"></button>
+            <a class="button" id="subheader-map-map " ui-sref="mobile.events.map" >Map</a>
+             <button  class="button button-icon icon ion-navigate" id="subheader-map-navigate" ng-click="getGeo()" ></button>
          </div>
           <div class="button-bar subheader-info">
               <a class="button "><span> <i class="icon ion-calendar"></i>Monday, 3 july</span></a>
@@ -21,12 +24,15 @@
       </div>
     <ion-content style="top:155px;"  scroll="false">
 
-      <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options"  data-tap-disabled="true">
-         <ui-gmap-marker ng-repeat="marker in events" idkey="marker.eventID" icon="{url:'../img/pin.png'}" coords="{longitude:marker.longitude,latitude:marker.latitude}" click="showEvents(marker)" fit="true" dorebuildall="true">
-          </ui-gmap-marker>
-      </ui-gmap-google-map>
+        <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options"  data-tap-disabled="true">
+           <ui-gmap-marker  ng-repeat="marker in events" idkey="marker.eventID" icon="{url:'../img/pin.png'}" dorebuildall="true" doCluster="true" coords="{longitude:marker.longitude,latitude:marker.latitude}" click="showEvents(marker)" fit="true" >
+            </ui-gmap-marker>
+                       <ui-gmap-circle ng-repeat="c in circles track by c.id" center="c.center" stroke="c.stroke" fill="c.fill" radius="c.radius"
+                visible="c.visible" geodesic="c.geodesic" editable="c.editable" draggable="c.draggable" clickable="c.clickable" control="c.control"></ui-gmap-circle>
+        </ui-gmap-google-map>
+
     </ion-content>
-         <ion-footer-bar id="map-events" ng-show="showPopup">
+         <ion-footer-bar id="map-events" ng-show="showPopup" ng-click="showDetails(results)">
                    <div class="row">
                       <div class="col col-33"><img ng-src="{{results.locationImage}}"></img></div>
                       <div class="col ">  <span id="map-events-title">{{results.title}}</span>

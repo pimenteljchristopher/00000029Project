@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'kkfet.services' is found in services.js
 // 'kkfet.controllers' is found in controllers.js
-angular.module('kkfet', ['ionic', 'kkfet.controllers', 'kkfet.services','kkfet.agenda', 'uiGmapgoogle-maps','ngCordova'])
+angular.module('kkfet', ['ionic', 'kkfet.controllers', 'kkfet.services','uiGmapgoogle-maps','ngCordova'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -14,7 +14,7 @@ angular.module('kkfet', ['ionic', 'kkfet.controllers', 'kkfet.services','kkfet.a
     if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       cordova.plugins.Keyboard.disableScroll(true);
-
+    
     }
     if (window.StatusBar) {
       // org.apache.cordova.statusbar required
@@ -23,7 +23,14 @@ angular.module('kkfet', ['ionic', 'kkfet.controllers', 'kkfet.services','kkfet.a
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider,uiGmapGoogleMapApiProvider,$urlRouterProvider) {
+     uiGmapGoogleMapApiProvider.configure({
+    key: 'AIzaSyDFberVyWaVDCxFLaRxYLxUuSd4uPb_I2s',
+    v: '3.17',
+    libraries: 'weather,geometry,visualization',
+    language: 'en',
+    sensor: 'false',
+  });
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
@@ -73,7 +80,7 @@ angular.module('kkfet', ['ionic', 'kkfet.controllers', 'kkfet.services','kkfet.a
     .state('mobile.events.list', {
       url: '/list',
       views: {
-        'agenda-list': {
+        'agenda': {
           templateUrl: 'templates/events-list.html'
         }
       }
@@ -81,8 +88,9 @@ angular.module('kkfet', ['ionic', 'kkfet.controllers', 'kkfet.services','kkfet.a
     .state('mobile.events.map', {
       url: '/map',
       views: {
-        'agenda-list': {
-          templateUrl: 'templates/events-map.html'
+        'agenda': {
+          templateUrl: 'templates/events-map.html',
+          controller:'EventsMapCtrl'
         }
       }
     })
