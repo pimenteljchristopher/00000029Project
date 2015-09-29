@@ -1,6 +1,18 @@
-<ion-view view-title="{{location.title}}">
-  <ion-content class="padding">
-    <img ng-src="{{ location.image }}">
-    <p data-ng-bind-html="location.detail"></p>
-  </ion-content>
+<ion-view view-title="Annuaire" class="bar-balanced">
+<ion-side-menus>
+  <!-- Left menu -->
+  <ion-side-menu side="left">
+  </ion-side-menu>
+
+  <ion-side-menu-content>
+  <!-- Main content, usually <ion-nav-view> -->left
+  </ion-side-menu-content>
+
+  <!-- Right menu -->
+  <ion-side-menu side="right">
+  </ion-side-menu>
+
+</ion-side-menus>
+    <ion-nav-view name="locations"></ion-nav-view>
+
 </ion-view>

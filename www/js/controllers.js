@@ -67,12 +67,6 @@ angular.module('kkfet.controllers', [])
         }
     );
 
-    $scope.showEvents= function(data){
-       $scope.results= data;
-       $scope.showPopup = true;
-    }
-
-
 
  
    
@@ -229,14 +223,17 @@ angular.module('kkfet.controllers', [])
 
 .controller('LocationsCtrl', ['$scope', '$rootScope', '$stateParams', 'kkfetService', function($scope, $rootScope, $stateParams, kkfetService) {
     $scope.locations = {};
-    
+        $scope.map = {center: {latitude: 0, longitude: 0 }, zoom: 3 };
     $scope.$on('$ionicView.beforeEnter', function() {
        $rootScope.bar_style = 'bar-annuaire';
     }); 
+
+    
     
     kkfetService.getLocationObjects().then(
         function (locations){
             $scope.locations = locations;
+            console.log(locations);
         }
     );
 }])
@@ -244,6 +241,8 @@ angular.module('kkfet.controllers', [])
 .controller('LocationCtrl', ['$scope', '$rootScope', '$stateParams', 'kkfetService', function($scope, $rootScope, $stateParams, kkfetService) {
     $scope.location = {};
     $scope.locations = {};
+
+       
     
     $scope.$on('$ionicView.beforeEnter', function() {
        $rootScope.bar_style = 'bar-annuaire';

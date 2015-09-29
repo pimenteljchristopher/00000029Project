@@ -81,7 +81,7 @@ angular.module('kkfet', ['ionic', 'kkfet.controllers', 'kkfet.services','uiGmapg
       url: '/list',
       views: {
         'agenda': {
-          templateUrl: 'templates/events-list.html'
+          templateUrl: 'templates/events-lists.html'
         }
       }
     })
@@ -94,31 +94,48 @@ angular.module('kkfet', ['ionic', 'kkfet.controllers', 'kkfet.services','uiGmapg
         }
       }
     })
-    .state('mobile.event', {
+    .state('mobile.events.event', {
       url: '/event/:eventId',
       views: {
-        'tab-events': {
+        'agenda': {
           templateUrl: 'templates/event.html',
           controller: 'EventCtrl'
         }
       }
     })
-
-  .state('mobile.locations', {
-      url: '/locations/',
+      .state('mobile.location', {
+      url: '/locations',
       views: {
         'tab-locations': {
-          templateUrl: 'templates/locations.html',
-          controller: 'LocationsCtrl'
+          templateUrl: 'templates/location.html',
+          controller:'LocationsCtrl'
         }
       }
     })
 
-    .state('mobile.location', {
-      url: '/location/:locationId',
+  .state('mobile.location.lists', {
+      url: '/list',
       views: {
-        'tab-locations': {
-          templateUrl: 'templates/location.html',
+        'locations': {
+          templateUrl: 'templates/location-lists.html'
+        }
+      }
+    })
+  .state('mobile.location.map', {
+      url: '/map',
+      views: {
+        'locations': {
+          templateUrl: 'templates/location-map.html'
+
+        }
+      }
+    })
+
+    .state('mobile.location.list', {
+      url: '/list/:locationId',
+      views: {
+        'locations': {
+          templateUrl: 'templates/list.html',
           controller: 'LocationCtrl'
         }
       }

@@ -1,0 +1,30 @@
+<ion-view view-title="{{location.title}}" >
+
+  <ion-content class="padding">
+
+
+        <div class="list card">
+		  <div class="item item-avatar">
+		      <img ng-src="{{ location.image }}">
+		    <h2>{{location.title}}</h2>
+		    <p data-ng-bind-html="location.address"></p>
+		  </div>
+		   <div class="item item-body" style="height:180px;width:100%;">
+				     <ui-gmap-google-map center="map.center" zoom="3" dragging="'false'" options="options"  data-tap-disabled="true">
+					       <ui-gmap-marker idkey="location.post_id" icon="{url:'../img/pin.png'}" dorebuildall="true" doCluster="true" coords="{longitude:location.location_longitude,latitude:location.location_latitude}" click="showEvents(marker)" fit="true" >
+	                       </ui-gmap-marker>
+				    </ui-gmap-google-map>
+
+		  </div>
+		   <div class="item item-text-wrap" >
+			  {{location.detail}}
+		   </div>
+		  
+
+		</div>
+
+
+  
+   
+  </ion-content>
+</ion-view>
