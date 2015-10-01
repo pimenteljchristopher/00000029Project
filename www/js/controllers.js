@@ -71,8 +71,8 @@ angular.module('kkfet.controllers', [])
  
    
 }])
-.controller('EventsMapCtrl', ['$scope', '$rootScope', '$stateParams', 'kkfetService','$cordovaGeolocation','$ionicPlatform','$ionicPopup','$ionicSideMenuDelegate',
-    function($scope, $rootScope, $stateParams, kkfetService,$cordovaGeolocation, $ionicPlatform,$ionicPopup,$ionicSideMenuDelegate) {
+.controller('EventsMapCtrl', ['$scope', '$rootScope', '$stateParams', 'kkfetService','$cordovaGeolocation','$ionicPlatform','$ionicPopup','$ionicSideMenuDelegate','$state',
+    function($scope, $rootScope, $stateParams, kkfetService,$cordovaGeolocation, $ionicPlatform,$ionicPopup,$ionicSideMenuDelegate,$state) {
     $scope.events = {};
        $scope.map = {center: {latitude: 0, longitude: 0 }, zoom: 3 };
      
@@ -105,15 +105,18 @@ angular.module('kkfet.controllers', [])
        $scope.showPopup = true;
     }
    $scope.getGeo = function(){
-         console.log('geo');
-        $ionicPlatform.ready(function() {
+  
+        
+              console.log("ready state");
+              $ionicPlatform.ready(function() {
            $cordovaGeolocation.getCurrentPosition().then(function (position) {
-
+                
+                   console.log("ready geo");
                      // results
                     console.log(position);
                      var lat  = position.coords.latitude
                       var lon = position.coords.longitude
-                      $scope.map = {center: {latitude: lat, longitude: lon}, zoom: 16 };
+                      $scope.map = {center: {latitude: lat, longitude: lon}, zoom: 13 };
                      $scope.circles = [
                             {
                                 id: 1,
@@ -186,11 +189,17 @@ angular.module('kkfet.controllers', [])
                             }
                       ];
 
+                
+                        $state.go('mobile.events.map',{},{reload: true});
                       //end
                     }, function(err) {
                         alert('code: '    + err.code    + '\n' + 'message: ' + err.message + '\n');
                     });
-        });
+            
+              
+                });
+            
+           
      };
 
    

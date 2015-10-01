@@ -3,16 +3,16 @@
       <button menu-toggle="left" class="button button-balanced button-icon icon ion-navicon"></button>
     </ion-nav-buttons>
     <ion-nav-buttons side="right">
-     <a>
-     <button  class="button button-balanced button-icon icon ion-ios-search" ></button>
-   </a>
+
+     <button  menu-toggle="right" class="button button-balanced button-icon icon ion-ios-search" ></button>
+ 
     </ion-nav-buttons>
 
          <div class="tab-agenda" >
           <div class="button-bar subheader-map">
             <a class="button "  id="subheader-map-list" ui-sref="mobile.events.list">List</a>
             <a class="button" id="subheader-map-map " ui-sref="mobile.events.map">Map</a>
-             <button  class="button button-icon icon ion-navigate" id="subheader-map-navigate"></button>
+             <button  class="button button-icon icon ion-navigate" id="subheader-map-navigate" ng-click="getGeo()"></button>
          </div>
           <div class="button-bar subheader-info">
               <a class="button "><span> <i class="icon ion-calendar"></i>Monday, 3 july</span></a>

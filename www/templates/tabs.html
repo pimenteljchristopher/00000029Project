@@ -3,24 +3,29 @@ Create tabs with an icon and label, using the tabs-positive style.
 Each tab's child <ion-nav-view> directive will have its own
 navigation history that also transitions its views in and out.
 -->
+
+
+
+
+
 <ion-tabs class="tabs-icon-top {{bar_style}}">
   <!-- Niouz Tab -->
-  <ion-tab title="Niouz" icon-off="ion-ios-compose-outline" icon-on="ion-ios-compose" href="#/mobile/niouz/">
+  <ion-tab title="Niouz" icon-off="ion-ios-compose-outline" icon-on="ion-ios-compose" href="#/app/tabs/niouz/">
     <ion-nav-view name="tab-niouz"></ion-nav-view>
   </ion-tab>
 
   <!-- Agenda Tab -->
-  <ion-tab title="Agenda" icon-off="ion-ios-calendar-outline" icon-on="ion-ios-calendar" href="#/mobile/events/list">
+  <ion-tab title="Agenda" icon-off="ion-ios-calendar-outline" icon-on="ion-ios-calendar" href="#/app/tabs/events/list">
     <ion-nav-view name="tab-events"></ion-nav-view>
   </ion-tab>
     
   <!-- Annuaire Tab -->
-  <ion-tab title="Annuaire" icon-off="ion-ios-location-outline" icon-on="ion-ios-location" href="#/mobile/locations/list">
+  <ion-tab title="Annuaire" icon-off="ion-ios-location-outline" icon-on="ion-ios-location" href="#/app/tabs/locations/list">
     <ion-nav-view name="tab-locations"></ion-nav-view>
   </ion-tab>
 
   <!-- Options Tab -->
-  <ion-tab title="Options" icon-off="ion-ios-gear-outline" icon-on="ion-ios-gear" href="#/mobile/account">
+  <ion-tab title="Options" icon-off="ion-ios-gear-outline" icon-on="ion-ios-gear" href="#/app/tabs/account">
     <ion-nav-view name="tab-account"></ion-nav-view>
   </ion-tab>
 </ion-tabs>

@@ -37,18 +37,27 @@ angular.module('kkfet', ['ionic', 'kkfet.controllers', 'kkfet.services','uiGmapg
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
   $stateProvider
+    .state('app', {
+    url: '/app',
+    abstract: true,
+    templateUrl: 'templates/menu.html'
+
+  })
 
   // setup an abstract state for the tabs directive
-    .state('mobile', {
-    url: '/mobile',
-    abstract: true,
-    templateUrl: 'templates/tabs.html'
+    .state('app.tabs', {
+     url: '/tabs',
+      views: {
+        'tabs': {
+          templateUrl: 'templates/tabs.html'
+        }
+      }
 
   })
 
   // Each tab has its own nav history stack:
 
-  .state('mobile.niouz', {
+  .state('app.tabs.niouz', {
     url: '/niouz/',
     views: {
       'tab-niouz': {
@@ -58,7 +67,7 @@ angular.module('kkfet', ['ionic', 'kkfet.controllers', 'kkfet.services','uiGmapg
     }
   })
 
-  .state('mobile.niouz-single', {
+  .state('app.tabs.niouz-single', {
     url: '/niouz/:niouzId',
     views: {
       'tab-niouz': {
@@ -68,7 +77,7 @@ angular.module('kkfet', ['ionic', 'kkfet.controllers', 'kkfet.services','uiGmapg
     }
   })
 
-  .state('mobile.events', {
+  .state('app.tabs.events', {
       url: '/events',
       views: {
         'tab-events': {
@@ -77,15 +86,16 @@ angular.module('kkfet', ['ionic', 'kkfet.controllers', 'kkfet.services','uiGmapg
         }
       }
     })
-    .state('mobile.events.list', {
+    .state('app.tabs.events.list', {
       url: '/list',
       views: {
         'agenda': {
-          templateUrl: 'templates/events-lists.html'
+          templateUrl: 'templates/events-lists.html',
+          controller:'EventsMapCtrl'
         }
       }
     })
-    .state('mobile.events.map', {
+    .state('app.tabs.events.map', {
       url: '/map',
       views: {
         'agenda': {
@@ -94,7 +104,7 @@ angular.module('kkfet', ['ionic', 'kkfet.controllers', 'kkfet.services','uiGmapg
         }
       }
     })
-    .state('mobile.events.event', {
+    .state('app.tabs.events.event', {
       url: '/event/:eventId',
       views: {
         'agenda': {
@@ -103,7 +113,7 @@ angular.module('kkfet', ['ionic', 'kkfet.controllers', 'kkfet.services','uiGmapg
         }
       }
     })
-      .state('mobile.location', {
+      .state('app.tabs.location', {
       url: '/locations',
       views: {
         'tab-locations': {
@@ -113,7 +123,7 @@ angular.module('kkfet', ['ionic', 'kkfet.controllers', 'kkfet.services','uiGmapg
       }
     })
 
-  .state('mobile.location.lists', {
+  .state('app.tabs.location.lists', {
       url: '/list',
       views: {
         'locations': {
@@ -121,7 +131,7 @@ angular.module('kkfet', ['ionic', 'kkfet.controllers', 'kkfet.services','uiGmapg
         }
       }
     })
-  .state('mobile.location.map', {
+  .state('app.tabs.location.map', {
       url: '/map',
       views: {
         'locations': {
@@ -131,7 +141,7 @@ angular.module('kkfet', ['ionic', 'kkfet.controllers', 'kkfet.services','uiGmapg
       }
     })
 
-    .state('mobile.location.list', {
+    .state('app.tabs.location.list', {
       url: '/list/:locationId',
       views: {
         'locations': {
@@ -141,7 +151,7 @@ angular.module('kkfet', ['ionic', 'kkfet.controllers', 'kkfet.services','uiGmapg
       }
     })
 
-  .state('mobile.account', {
+  .state('app.tabs.account', {
     url: '/account',
     views: {
       'tab-account': {
@@ -152,7 +162,7 @@ angular.module('kkfet', ['ionic', 'kkfet.controllers', 'kkfet.services','uiGmapg
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/mobile/niouz/');
+  $urlRouterProvider.otherwise('/app/tabs/niouz/');
 
 })
 

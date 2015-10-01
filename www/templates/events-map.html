@@ -15,7 +15,7 @@
           <div class="button-bar subheader-map">
             <a class="button "  id="subheader-map-list" ui-sref="mobile.events.list">List</a>
             <a class="button" id="subheader-map-map " ui-sref="mobile.events.map" >Map</a>
-             <button  class="button button-icon icon ion-navigate" id="subheader-map-navigate" ng-click="getGeo()" ></button>
+             <button  class="button button-icon icon ion-navigate" id="subheader-map-navigate" ng-click="getGeo()"></button>
          </div>
           <div class="button-bar subheader-info">
               <a class="button "><span> <i class="icon ion-calendar"></i>Monday, 3 july</span></a>
@@ -24,15 +24,17 @@
       </div>
     <ion-content style="top:155px;"  scroll="false">
 
-        <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options"  data-tap-disabled="true">
+        <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options"  data-tap-disabled="true" >
            <ui-gmap-marker  ng-repeat="marker in events" idkey="marker.eventID" icon="{url:'../img/pin.png'}" dorebuildall="true" doCluster="true" coords="{longitude:marker.longitude,latitude:marker.latitude}" click="showEvents(marker)" fit="true" >
             </ui-gmap-marker>
-                       <ui-gmap-circle ng-repeat="c in circles track by c.id" center="c.center" stroke="c.stroke" fill="c.fill" radius="c.radius"
+                       <ui-gmap-circle ng-repeat="c in circles track by c.id" center="c.center" stroke="c.stroke" fill="c.fill" radius="c.radius" doCluster="true" dorebuildall="true"
                 visible="c.visible" geodesic="c.geodesic" editable="c.editable" draggable="c.draggable" clickable="c.clickable" control="c.control"></ui-gmap-circle>
         </ui-gmap-google-map>
 
     </ion-content>
-         <ion-footer-bar id="map-events" ng-show="showPopup" ng-click="showDetails(results)">
+    <a href="#/mobile/events/event/{{results.eventID}}">
+         <ion-footer-bar id="map-events" ng-show="showPopup" >
+          
                    <div class="row">
                       <div class="col col-33"><img ng-src="{{results.locationImage}}"></img></div>
                       <div class="col ">  <span id="map-events-title">{{results.title}}</span>
@@ -41,5 +43,7 @@
                                               <span id="map-events-detail" >{{results.detail}}</span>
                       </div>
                     </div>
+            
          </ion-footer-bar>
+    </a>
 </ion-view>
