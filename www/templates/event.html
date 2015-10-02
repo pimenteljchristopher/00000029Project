@@ -1,10 +1,11 @@
+
+
+<ion-view title="{{event.title}}" >
 <ion-nav-bar>
   <ion-nav-back-button class="button-clear">
     <i class="ion-arrow-left-c"></i> Back
   </ion-nav-back-button>
 </ion-nav-bar>
-<ion-view title="{{event.title}}" >
-
   <ion-content>
     <div class="card">
         <div class="item item-avatar">
@@ -13,7 +14,7 @@
             <p>{{event.start_date_full}}</p>
         </div>
         <div class="item item-body">
-            <img class="full-image" ng-src="{{event.image}}">
+            <img class="full-image" ng-src="{{event.locationImage}}">
             <p>{{event.category}}<span ng-if="event.style != false"> - {{event.style}}</span></p>
             <p>{{event.location}}</p>
             <p data-ng-bind-html="event.detail"></p>

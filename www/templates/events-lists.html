@@ -1,17 +1,16 @@
-<ion-view view-title="List" class="bar-balanced" hide-back-button="true">
-    <ion-nav-buttons side="left">
-      <button menu-toggle="left" class="button button-balanced button-icon icon ion-navicon"></button>
-    </ion-nav-buttons>
-    <ion-nav-buttons side="right">
-
-     <button  menu-toggle="right" class="button button-balanced button-icon icon ion-ios-search" ></button>
- 
-    </ion-nav-buttons>
-
+<ion-view view-title="List"   hide-back-button="true">
+    <ion-nav-bar>
+      <ion-nav-buttons side="left">
+        <button class="button button-balanced button-icon icon ion-navicon" menu-toggle="left"></button>
+      </ion-nav-buttons>
+      <ion-nav-buttons side="right">
+       <button  menu-toggle="right" class="button button-balanced button-icon icon ion-ios-search" ></button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
          <div class="tab-agenda" >
           <div class="button-bar subheader-map">
-            <a class="button "  id="subheader-map-list" ui-sref="mobile.events.list">List</a>
-            <a class="button" id="subheader-map-map " ui-sref="mobile.events.map">Map</a>
+            <a class="button "  id="subheader-map-list" ui-sref="app.tabs.events.list">List</a>
+            <a class="button" id="subheader-map-map " ui-sref="app.tabs.events.map">Map</a>
              <button  class="button button-icon icon ion-navigate" id="subheader-map-navigate" ng-click="getGeo()"></button>
          </div>
           <div class="button-bar subheader-info">
@@ -20,10 +19,9 @@
           </div>
       </div>
     <ion-content style="top:155px;" >
-
       <div class="list">
         <a ng-repeat="item in events" 
-           href="#/mobile/events/event/{{item.eventID}}"
+           href="#/app/tabs/events/event/{{item.eventID}}"
            class="item item-thumbnail-left">
 
           <img ng-src="{{ item.locationImage }}">

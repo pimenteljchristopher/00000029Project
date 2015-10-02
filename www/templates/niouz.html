@@ -1,11 +1,21 @@
-<ion-view view-title="Niouz" class="bar-balanced">
-
+<ion-view view-title="Niouz" >
+    <ion-nav-bar class="bar-balanced">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+       <ion-nav-buttons side="right">
+     <button  class="button button-balanced button-icon icon ion-ios-search" menu-toggle="right"></button>
+    </ion-nav-buttons>
+    </ion-nav-bar>
     <ion-content>
 
       <ion-list>
 
         <a ng-repeat="item in niouz"
-           href="#/mobile/niouz/{{item.id}}"
+           href="#/app/tabs/niouz/{{item.id}}"
            class="niouz" ng-class="{'niouz-half':$index > 1}">
 
           <img class="image-niouz" ng-src="{{ item.thumbnail_images.full.url }}" style="width:100%">
